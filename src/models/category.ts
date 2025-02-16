@@ -1,4 +1,5 @@
 // TODO why is any string still allowed?
+// also get this from the db
 
 export type Category = 
 	'Produce'

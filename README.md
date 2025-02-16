@@ -23,6 +23,39 @@ Other requirements/suggestions:
 * routing and loaders ("render as you fetch")
 
 
+## TODO
+* sketch out UI feature requirements
+  * shopping list
+    * view items 
+    * add item
+    * edit item
+    * delete item
+    * check off item (not deleted, just a status change - it can be re-added easily)
+    * toggle view: not purchased/all
+    * filter by name, description, category, tags
+    * sort by name, category
+  * view item details
+    * name
+    * description
+    * category
+    * tags
+  * view categories (user and system)
+    * add, edit, delete categories
+  * view tags (user and system) -- system tags?
+    * add, edit, delete tags
+
+* get db with migrations up and running
+* keep refining models
+  * shopping item category
+  	* make this a computed? or maybe the ui is just dumb -- get systemCategories from the db and add any other values as custom categories in the db, but the ui won't know the difference
+	  * ex: on insert or update, check if the category is in the db, if not, add it to the user's custom categories
+    * create separate UI for user to manage categories separately (add, delete) -- if they delete a category, check if any items are using it, and if so, warn
+* css:
+  * use sass?
+  * use tailwind? some other css framework?
+
+
+
 # Default Stuff
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
