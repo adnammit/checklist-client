@@ -25,6 +25,7 @@ export async function getShopping() {
 			id: '3',
 			name: 'Bread',
 			category: 'Bakery',
+			notes: 'Whole grain',
 			isDone: true,
 		},
 		{
@@ -37,6 +38,7 @@ export async function getShopping() {
 			id: '5',
 			name: 'Chips',
 			category: 'Snacks',
+			notes: `Don't get the healthy kind, they taste like cardboard`,
 			isDone: true,
 		},
 	];

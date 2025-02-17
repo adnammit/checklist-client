@@ -1,19 +1,25 @@
+// import { useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
-// import { getPizzas } from "../../services/pizza";
 import Item from "../../models/shoppingItem";
 import ShoppingItem from "./ShoppingItem";
-// import { MenuItemDto } from "./menu";
+import { useState } from 'react';
 
 export default function ShoppingList() {
-	// const pizzas = getPizzas();
-
+	const [newItemName, setNewItemName] = useState('');
 	const items = useLoaderData() as Item[];
-	console.log(items);
-	// const pizzas = menu?.pizzas ?? [];
-	// console.log(menu);
+	console.log('loader items ',items);
+
+	const addItem = () => {
+		items.push({
+			name: newItemName,
+			category: 'Other',
+			isDone: false,
+		});
+		setNewItemName('');
+	}
 
 	return (
-		<main className="menu">
+		<main>
 			<h2>Shopping List</h2>
 			{items.length > 0 ? (
 				<>
@@ -21,17 +27,23 @@ export default function ShoppingList() {
 						Shopping time! You have {items.length} items on your list.
 					</p>
 
+
+					{/* TODO: hitting enter in input calls addItem as well */}
+					<input
+						type="text"
+						placeholder="Add Item"
+						value={newItemName}
+						onChange={(e) => setNewItemName(e.target.value)}
+					/>
+					<button type="button" onClick={addItem}>Add</button>
+
 					<ul>
 						{items.map((item) => (
 							<ShoppingItem
 								name={item.name}
 								category={item.category}
+								notes={item.notes}
 								isDone={item.isDone}
-								// imageUrl={item.imageUrl}
-								// photoName={item.photoName}
-								// ingredients={item.ingredients}
-								// price={item.unitPrice}
-								// key={item.name}
 							/>
 						))}
 					</ul>

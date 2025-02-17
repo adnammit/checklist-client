@@ -1,6 +1,6 @@
 # Shopping Time! With React + TypeScript + Vite 💅
 
-I couldn't find a shopping app that I like, so fine - I'll make my own
+I couldn't find a shopping app that I like for a price that I was willing to pay, so I made my own
 
 ## Quick Start
 
@@ -23,27 +23,38 @@ Other requirements/suggestions:
 * routing and loaders ("render as you fetch")
 
 
-## TODO
-* sketch out UI feature requirements
-  * shopping list
-    * view items 
-    * add item
-    * edit item
-    * delete item
-    * check off item (not deleted, just a status change - it can be re-added easily)
-    * toggle view: not purchased/all
-    * filter by name, description, category, tags
-    * sort by name, category
-  * view item details
-    * name
-    * description
-    * category
-    * tags
-  * view categories (user and system)
-    * add, edit, delete categories
-  * view tags (user and system) -- system tags?
-    * add, edit, delete tags
+## Requirements
+* shopping list
+  * view items 
+  * add item
+    * search to find matches against previous items
+  * edit item
+  * delete item
+  * check off item (not deleted, just a status change - it can be re-added easily)
+  * toggle view: not purchased/all
+  * filter by name, description, category, tags
+  * sort by name, category
+* view item details
+  * name
+  * description
+  * category
+  * tags
+* view categories (user and system)
+  * add, edit, delete categories
+* view tags (user and system) -- system tags?
+  * add, edit, delete tags
 
+## TODO
+* **NEXT**
+  * make two big decisions: backend/db/persistence, and frontend framework
+  * edit item
+  * delete item
+* app layout and design
+  * use a component library? 
+    * https://www.heroui.com/
+    * https://www.radix-ui.com/primitives
+  * refine loading and error views
+  * refine header and footer
 * get db with migrations up and running
 * keep refining models
   * shopping item category

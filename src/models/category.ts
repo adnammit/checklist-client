@@ -9,6 +9,7 @@ export type Category =
 	| 'Breakfast'
 	| 'Bakery'
 	| 'Sauces'
-	| 'Nuts and Grains';
+	| 'Nuts and Grains'
+	| 'Other'; // TODO or undefined?
 	// | string; // custom strings
 
