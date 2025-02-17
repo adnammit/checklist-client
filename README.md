@@ -46,6 +46,7 @@ Other requirements/suggestions:
 
 ## TODO
 * **NEXT**
+  * deployment :(
   * make two big decisions: backend/db/persistence, and frontend framework
   * edit item
   * delete item

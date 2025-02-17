@@ -1,4 +1,5 @@
 // import { useEffect } from "react";
+import { KeyboardEvent } from 'react';
 import { useLoaderData } from "react-router-dom";
 import Item from "../../models/shoppingItem";
 import ShoppingItem from "./ShoppingItem";
@@ -18,6 +19,13 @@ export default function ShoppingList() {
 		setNewItemName('');
 	}
 
+	const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === 'Enter') {
+			e.preventDefault();
+			addItem();
+		}
+	};
+
 	return (
 		<main>
 			<h2>Shopping List</h2>
@@ -27,13 +35,12 @@ export default function ShoppingList() {
 						Shopping time! You have {items.length} items on your list.
 					</p>
 
-
-					{/* TODO: hitting enter in input calls addItem as well */}
 					<input
 						type="text"
 						placeholder="Add Item"
 						value={newItemName}
 						onChange={(e) => setNewItemName(e.target.value)}
+						onKeyDown={(e) => onKeyPressHandler(e)}
 					/>
 					<button type="button" onClick={addItem}>Add</button>
 
