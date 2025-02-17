@@ -48,8 +48,9 @@ export default function ShoppingList() {
 						{items.map((item) => (
 							<ShoppingItem
 								name={item.name}
-								category={item.category}
 								notes={item.notes}
+								quantity={item.quantity}
+								category={item.category}
 								isDone={item.isDone}
 							/>
 						))}

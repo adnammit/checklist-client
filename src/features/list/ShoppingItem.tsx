@@ -3,15 +3,17 @@ import { Category } from '../../models/category';
 
 interface Props {
 	name: string;
-	category: Category;
 	notes?: string;
+	quantity?: number;
+	category: Category;
 	isDone: boolean;
 }
 
 export default function ShoppingItem({
 	name,
-	category,
 	notes,
+	quantity,
+	category,
 	isDone,
 }: Props) {
 	const [done, setDone] = useState(isDone);
@@ -25,11 +27,14 @@ export default function ShoppingItem({
 	}
 
 	return (
-		<li>
+		// TODO this looks so bad -- fix it asap after you select a component library
+		<li style={{listStyleType: 'none'}}>
 			<div>
 				<h3>{name}</h3>
 				<p>{category}</p>
 				<span>{notes}</span>
+				<span>{quantity}</span>
+				<br />
 				<button onClick={toggleDone}>{getDoneIcon()}</button>
 			</div>
 		</li>

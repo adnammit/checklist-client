@@ -12,20 +12,22 @@ export async function getShopping() {
 		{
 			id: '1',
 			name: 'Tomato',
+			quantity: 2,
 			category: 'Produce',
 			isDone: false,
 		},
 		{
 			id: '2',
 			name: 'Tofu',
-			category: 'Produce',
+			notes: 'Extra firm',
+			category: 'Deli',
 			isDone: true,
 		},
 		{
 			id: '3',
 			name: 'Bread',
-			category: 'Bakery',
 			notes: 'Whole grain',
+			category: 'Bakery',
 			isDone: true,
 		},
 		{
@@ -37,8 +39,8 @@ export async function getShopping() {
 		{
 			id: '5',
 			name: 'Chips',
-			category: 'Snacks',
 			notes: `Don't get the healthy kind, they taste like cardboard`,
+			category: 'Snacks',
 			isDone: true,
 		},
 	];
