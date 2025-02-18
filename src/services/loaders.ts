@@ -1,7 +1,7 @@
-import { getShopping } from "./shoppingAPI";
+import { getShopping } from './shoppingAPI';
 
 export async function shoppingLoader() {
-	const items = await getShopping();
-	console.log("items in loader", items);
-	return items;
+  const items = await getShopping();
+  console.log('items in loader', items);
+  return items;
 }
