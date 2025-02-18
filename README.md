@@ -2,6 +2,8 @@
 
 I couldn't find a shopping app that I like for a price that I was willing to pay, so I made my own
 
+[let's go shopping](https://shop.amandaryman.com/)
+
 ## Quick Start
 
 ```bash
@@ -22,6 +24,9 @@ Other requirements/suggestions:
 ## Concepts
 * routing and loaders ("render as you fetch")
 
+
+## Deployment
+* deployed using AWS Amplify
 
 ## Requirements
 * shopping list

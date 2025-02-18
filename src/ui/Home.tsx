@@ -7,13 +7,9 @@ export default function Home() {
 
 	return (
 		<div>
-			<h1>
-				The best pizza.
-				<br />
-				<span>
-					Straight out of the oven, straight to you.
-				</span>
-			</h1>
+			<h3>
+				Best in shopping class
+			</h3>
 
 			{/* {username === '' ? (
         <CreateUser />
