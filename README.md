@@ -27,6 +27,11 @@ Other requirements/suggestions:
 
 ## Deployment
 * deployed using AWS Amplify
+* domain ideas 
+  * stockup.cc
+  * stocked.cc
+  * listhappens.cc
+  * cartblanche.net
 
 ## Requirements
 * shopping list
@@ -51,7 +56,6 @@ Other requirements/suggestions:
 
 ## TODO
 * **NEXT**
-  * deployment :(
   * make two big decisions: backend/db/persistence, and frontend framework
   * edit item
   * delete item
