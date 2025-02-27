@@ -2,7 +2,8 @@
 
 I couldn't find a shopping app that I like for a price that I was willing to pay, so I made my own
 
-[let's go shopping](https://shop.amandaryman.com/)
+[let's go shopping](https://shop.amandaryman.com/list)
+<!-- [let's go shopping](https://shop.amandaryman.com) -->
 
 ## Quick Start
 
