@@ -1,6 +1,7 @@
 import { Category } from './category';
 
 export default interface Item {
+  id: string;
   name: string;
   notes?: string;
   quantity?: number;
@@ -8,5 +9,5 @@ export default interface Item {
   // is uncategorized == 'Other' or undefined?
   category: Category;
   customCategory?: string;
-  isDone: boolean;
+  completed: boolean;
 }

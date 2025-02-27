@@ -7,7 +7,9 @@ export type Category =
   | 'Dairy'
   | 'Deli'
   | 'Breakfast'
+  | 'Beverage'
   | 'Bakery'
+  | 'Snacks'
   | 'Sauces'
   | 'Nuts and Grains'
   | 'Other'; // TODO or undefined?

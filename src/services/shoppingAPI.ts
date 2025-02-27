@@ -1,5 +1,7 @@
 // const API_URL = "https://react-fast-pizza-api.onrender.com/api";
 
+import shoppingItem from '../models/shoppingItem';
+
 export async function getShopping() {
   // const res = await fetch(`${API_URL}/menu`);
 
@@ -8,40 +10,40 @@ export async function getShopping() {
 
   // const { data } = await res.json();
 
-  const data: unknown[] = [
+  const data: shoppingItem[] = [
     {
       id: '1',
       name: 'Tomato',
       quantity: 2,
       category: 'Produce',
-      isDone: false
+      completed: false
     },
     {
       id: '2',
       name: 'Tofu',
       notes: 'Extra firm',
       category: 'Deli',
-      isDone: true
+      completed: true
     },
     {
       id: '3',
       name: 'Bread',
       notes: 'Whole grain',
       category: 'Bakery',
-      isDone: true
+      completed: true
     },
     {
       id: '4',
       name: 'Beer',
       category: 'Beverage',
-      isDone: false
+      completed: false
     },
     {
       id: '5',
       name: 'Chips',
       notes: `Don't get the healthy kind, they taste like cardboard`,
       category: 'Snacks',
-      isDone: true
+      completed: true
     }
   ];
   console.log('data is ', data);

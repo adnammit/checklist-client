@@ -14,7 +14,7 @@ export default function ShoppingList() {
     items.push({
       name: newItemName,
       category: 'Other',
-      isDone: false
+      completed: false
     });
     setNewItemName('');
   };
@@ -51,7 +51,7 @@ export default function ShoppingList() {
                 notes={item.notes}
                 quantity={item.quantity}
                 category={item.category}
-                isDone={item.isDone}
+                completed={item.completed}
               />
             ))}
           </ul>

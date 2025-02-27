@@ -6,7 +6,7 @@ interface Props {
   notes?: string;
   quantity?: number;
   category: Category;
-  isDone: boolean;
+  completed: boolean;
 }
 
 export default function ShoppingItem({
@@ -14,16 +14,16 @@ export default function ShoppingItem({
   notes,
   quantity,
   category,
-  isDone
+  completed
 }: Props) {
-  const [done, setDone] = useState(isDone);
+  const [isCompleted, setIsCompleted] = useState(completed);
 
-  const toggleDone = () => {
-    setDone(!done);
+  const toggleCompleted = () => {
+    setIsCompleted(!isCompleted);
   };
 
-  const getDoneIcon = () => {
-    return done ? '✅' : '❌';
+  const getCompletedIcon = () => {
+    return isCompleted ? '✅' : '❌';
   };
 
   return (
@@ -35,7 +35,7 @@ export default function ShoppingItem({
         <span>{notes}</span>
         <span>{quantity}</span>
         <br />
-        <button onClick={toggleDone}>{getDoneIcon()}</button>
+        <button onClick={toggleCompleted}>{getCompletedIcon()}</button>
       </div>
     </li>
   );
