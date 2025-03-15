@@ -12,6 +12,7 @@ export default function ShoppingList() {
 
   const addItem = () => {
     items.push({
+      id: Math.random().toString(),
       name: newItemName,
       category: 'Other',
       completed: false
