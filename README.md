@@ -55,18 +55,13 @@ Other requirements/suggestions:
 * view tags (user and system) -- system tags?
   * add, edit, delete tags
 
-## TODO
-* **NEXT**
-  * make two big decisions: backend/db/persistence, and frontend framework
-  * edit item
-  * delete item
+## Todo
 * app layout and design
   * use a component library? 
     * https://www.heroui.com/
     * https://www.radix-ui.com/primitives
   * refine loading and error views
   * refine header and footer
-* get db with migrations up and running
 * keep refining models
   * shopping item category
   	* make this a computed? or maybe the ui is just dumb -- get systemCategories from the db and add any other values as custom categories in the db, but the ui won't know the difference
