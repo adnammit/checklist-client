@@ -1,0 +1,14 @@
+{
+    "semi": false,
+    "trailingComma": "all",
+    "tabWidth": 4,
+    "singleQuote": true,
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx"],
+            "options": {
+                "parser": "typescript"
+            }
+        }
+    ]
+}

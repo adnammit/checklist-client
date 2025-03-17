@@ -1,26 +1,23 @@
 # Shopping Time! With React + TypeScript + Vite 💅
 
-I couldn't find a shopping app that I like for a price that I was willing to pay, so I made my own
-
-[let's go shopping](https://shop.amandaryman.com/list)
-<!-- [let's go shopping](https://shop.amandaryman.com) -->
+React/Typscript/Vite frontend for the checklistAPI and postgres db
 
 ## Quick Start
-
 ```bash
   npm i && npm run dev
 ```
 
 ## Setup
-
 This project was created using the [`react-ts` template for Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
 
 ```bash
   npm create vite@latest shopping-list -- --template react-ts
 ```
 
-Other requirements/suggestions:
-* Prettier vscode extension
+## Linting/Formatting
+* set up to use eslint and prettier
+* [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react/)
+
 
 ## Concepts
 * routing and loaders ("render as you fetch")
