@@ -1,41 +1,50 @@
-import { useState } from 'react'
-import { Category } from '../../models/category'
+import { Item } from '../../models/shoppingItem'
 
 interface Props {
-    name: string
-    notes?: string
-    quantity?: number
-    category: Category
-    completed: boolean
+    item: Item
+    onUpdate: (item: Item) => void
+    onDelete: (id: number) => void
 }
 
-export default function ShoppingItem({
-    name,
-    notes,
-    quantity,
-    category,
-    completed,
-}: Props) {
-    const [isCompleted, setIsCompleted] = useState(completed)
-
-    const toggleCompleted = () => {
-        setIsCompleted(!isCompleted)
+export default function ShoppingItem({ item, onUpdate, onDelete }: Props) {
+    const getCompletedIcon = () => {
+        return item.completed ? '✅' : '❌'
     }
 
-    const getCompletedIcon = () => {
-        return isCompleted ? '✅' : '❌'
+    const toggleCompleted = () => {
+        const updatedItem = {
+            ...item,
+            completed: !item.completed,
+        }
+        onUpdate(updatedItem)
+    }
+
+    const deleteItem = () => {
+        onDelete(item.id)
     }
 
     return (
-        // TODO this looks so bad -- fix it asap after you select a component library
         <li style={{ listStyleType: 'none' }}>
-            <div>
-                <h3>{name}</h3>
-                <p>{category}</p>
-                <span>{notes}</span>
-                <span>{quantity}</span>
+            <div
+                style={{
+                    display: 'flex',
+                    width: '100%',
+                    gap: '10px',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                }}
+            >
+                <h3>{item.name}</h3>
+                <p>{item.category}</p>
+                <span>{item.notes}</span>
+                <span>{item.quantity}</span>
                 <br />
-                <button onClick={toggleCompleted}>{getCompletedIcon()}</button>
+                <div style={{ gap: '10px', display: 'flex' }}>
+                    <button onClick={toggleCompleted}>
+                        {getCompletedIcon()}
+                    </button>
+                    <button onClick={deleteItem}>🗑️</button>
+                </div>
             </div>
         </li>
     )

@@ -1,9 +1,9 @@
 import axios from 'axios'
-import shoppingItem from '../models/shoppingItem'
+import { Item, ItemDto } from '../models/shoppingItem'
 import ApiBase from './ApiBase'
 
 const requestMgr = axios.create({
-    baseURL: 'http://localhost:5064',
+    baseURL: 'http://localhost:5064/list',
 })
 
 class ListApi extends ApiBase {
@@ -11,9 +11,52 @@ class ListApi extends ApiBase {
     // constructor() {
     //   this.getCategories();
     // }
-    public async getList(): Promise<shoppingItem[]> {
+    public async getList(): Promise<Item[]> {
         return requestMgr
-            .get('/list')
+            .get('/')
+            .then((res) => {
+                console.log('api res', res.data)
+                return res.data
+            })
+            .catch((error) => {
+                this.logError(error)
+                throw error
+            })
+    }
+
+    public async createListItem(item: ItemDto): Promise<Item> {
+        return requestMgr
+            .post('/item', {
+                ...item,
+            })
+            .then((res) => {
+                console.log('api res', res.data)
+                return res.data
+            })
+            .catch((error) => {
+                this.logError(error)
+                throw error
+            })
+    }
+
+    public async updateListItem(item: Item): Promise<Item> {
+        return requestMgr
+            .put(`/item/${item.id}`, {
+                ...item,
+            })
+            .then((res) => {
+                console.log('api res', res.data)
+                return res.data
+            })
+            .catch((error) => {
+                this.logError(error)
+                throw error
+            })
+    }
+
+    public async deleteListItem(id: number): Promise<Item> {
+        return requestMgr
+            .delete(`/item/${id}`)
             .then((res) => {
                 console.log('api res', res.data)
                 return res.data
