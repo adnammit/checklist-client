@@ -1,8 +1,8 @@
-// import { useEffect } from "react";
 import { KeyboardEvent } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import { Item, ItemDto } from '../../models/shoppingItem'
 import ShoppingItem from './ShoppingItem'
+import { Category, categories } from '../../models/category'
 import { useState } from 'react'
 import ListApi from '../../services/ListApi'
 
@@ -10,13 +10,17 @@ export default function ShoppingList() {
     const [items, setItems] = useState<Item[]>(
         (useLoaderData() as Item[]) || [],
     )
-    const [newItemName, setNewItemName] = useState('')
+    const [name, setName] = useState('')
+    const [notes, setNotes] = useState('')
+    const [category, setCategory] = useState('')
+    const [quantity, setQuantity] = useState<number | undefined>(undefined)
 
     const addItem = async () => {
         const dto: ItemDto = {
-            // id: Math.random(),
-            name: newItemName,
-            category: 'Other',
+            name: name,
+            notes: notes,
+            quantity: quantity,
+            category: category as Category,
             completed: false,
             listId: 1,
         }
@@ -31,9 +35,11 @@ export default function ShoppingList() {
         } finally {
             // set loading = false
         }
-
         setItems((prevItems) => [...prevItems, newItem])
-        setNewItemName('')
+        setNotes('')
+        setName('')
+        setCategory('')
+        setQuantity(undefined)
     }
 
     const updateItem = async (item: Item) => {
@@ -63,7 +69,6 @@ export default function ShoppingList() {
         } finally {
             // set loading = false
         }
-        // TODO: make call to delete
         setItems((prevItems) => prevItems.filter((item) => item.id !== id))
     }
 
@@ -76,41 +81,83 @@ export default function ShoppingList() {
 
     return (
         <main>
-            <h2>Shopping List</h2>
-            <input
-                type="text"
-                placeholder="Add Item"
-                value={newItemName}
-                onChange={(e) => setNewItemName(e.target.value)}
-                onKeyDown={(e) => onKeyPressHandler(e)}
-            />
-            <button type="button" onClick={addItem}>
-                Add
-            </button>
-            {items.length > 0 ? (
-                <>
-                    <p>
-                        Shopping time! You have {items.length} items on your
-                        list.
-                    </p>
-
-                    <ul>
-                        {items.map((item) => (
-                            <ShoppingItem
-                                key={item.id}
-                                item={item}
-                                onUpdate={updateItem}
-                                onDelete={deleteItem}
-                            />
+            <div>
+                <h2>Shopping List</h2>
+                <div
+                    style={{
+                        display: 'flex',
+                        width: '100%',
+                        gap: '10px',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                    }}
+                >
+                    <input
+                        type="text"
+                        placeholder="Item Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        onKeyDown={(e) => onKeyPressHandler(e)}
+                    />
+                    <select
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                    >
+                        {categories.map((category: string) => (
+                            <option key={category} value={category}>
+                                {category}
+                            </option>
                         ))}
-                    </ul>
-                </>
-            ) : (
-                <p>
-                    There&apos;s nothing on the list - add an item to get
-                    shopping!
-                </p>
-            )}
+                    </select>
+                    <input
+                        type="text"
+                        placeholder="Notes"
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                        onKeyDown={(e) => onKeyPressHandler(e)}
+                    />
+                    <input
+                        type="number"
+                        placeholder="Quantity"
+                        min="1"
+                        value={quantity ?? ''}
+                        onChange={(e) =>
+                            setQuantity(
+                                e.target.value === ''
+                                    ? undefined
+                                    : e.target.valueAsNumber,
+                            )
+                        }
+                    />
+                    <button type="button" onClick={addItem}>
+                        Add
+                    </button>
+                </div>
+                {items.length > 0 ? (
+                    <>
+                        <p>
+                            Shopping time! You have {items.length} items on your
+                            list.
+                        </p>
+
+                        <ul>
+                            {items.map((item) => (
+                                <ShoppingItem
+                                    key={item.id}
+                                    item={item}
+                                    onUpdate={updateItem}
+                                    onDelete={deleteItem}
+                                />
+                            ))}
+                        </ul>
+                    </>
+                ) : (
+                    <p>
+                        There&apos;s nothing on the list - add an item to get
+                        shopping!
+                    </p>
+                )}
+            </div>
         </main>
     )
 }

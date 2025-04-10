@@ -6,11 +6,27 @@ export type Category =
     | 'Frozen'
     | 'Dairy'
     | 'Deli'
+    | 'Canned Goods'
     | 'Breakfast'
     | 'Beverage'
     | 'Bakery'
     | 'Snacks'
-    | 'Sauces'
+    | 'Condiments'
     | 'Nuts and Grains'
     | 'Other' // TODO or undefined?
 // | string; // custom strings
+
+export const categories: Category[] = [
+    'Produce',
+    'Frozen',
+    'Dairy',
+    'Deli',
+    'Canned Goods',
+    'Breakfast',
+    'Beverage',
+    'Bakery',
+    'Snacks',
+    'Condiments',
+    'Nuts and Grains',
+    'Other',
+]
